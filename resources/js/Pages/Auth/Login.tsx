@@ -8,30 +8,30 @@ import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
 import route from 'ziggy-js'
 
-export default function Login({ status, canResetPassword }) {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        email: '',
-        password: '',
-        remember: '',
-    });
+export default function Login ({ status, canResetPassword }) {
+  const { data, setData, post, processing, errors, reset } = useForm({
+    email: '',
+    password: '',
+    remember: ''
+  })
 
-    useEffect(() => {
-        return () => {
-            reset('password');
-        };
-    }, []);
+  useEffect(() => {
+    return () => {
+      reset('password');
+    }
+  }, []);
 
-    const onHandleChange = (event) => {
-        setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
-    };
+  const onHandleChange = (event) => {
+    setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
+  }
 
-    const submit = (e) => {
-        e.preventDefault();
+  const submit = (e) => {
+    e.preventDefault();
 
-        post(route('login'));
-    };
+    post(route('login'));
+  }
 
-    return (
+  return (
         <GuestLayout>
             <Head title="Log in" />
 
@@ -94,5 +94,5 @@ export default function Login({ status, canResetPassword }) {
                 </div>
             </form>
         </GuestLayout>
-    );
+  )
 }

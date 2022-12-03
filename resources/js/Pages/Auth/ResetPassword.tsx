@@ -7,31 +7,31 @@ import TextInput from '@/Components/TextInput';
 import { Head, useForm } from '@inertiajs/inertia-react';
 import route from 'ziggy-js'
 
-export default function ResetPassword({ token, email }) {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        token: token,
-        email: email,
-        password: '',
-        password_confirmation: '',
-    });
+export default function ResetPassword ({ token, email }) {
+  const { data, setData, post, processing, errors, reset } = useForm({
+    token,
+    email,
+    password: '',
+    password_confirmation: ''
+  })
 
-    useEffect(() => {
-        return () => {
-            reset('password', 'password_confirmation');
-        };
-    }, []);
+  useEffect(() => {
+    return () => {
+      reset('password', 'password_confirmation');
+    }
+  }, []);
 
-    const onHandleChange = (event) => {
-        setData(event.target.name, event.target.value);
-    };
+  const onHandleChange = (event) => {
+    setData(event.target.name, event.target.value);
+  }
 
-    const submit = (e) => {
-        e.preventDefault();
+  const submit = (e) => {
+    e.preventDefault();
 
-        post(route('password.store'));
-    };
+    post(route('password.store'));
+  }
 
-    return (
+  return (
         <GuestLayout>
             <Head title="Reset Password" />
 
@@ -91,5 +91,5 @@ export default function ResetPassword({ token, email }) {
                 </div>
             </form>
         </GuestLayout>
-    );
+  )
 }

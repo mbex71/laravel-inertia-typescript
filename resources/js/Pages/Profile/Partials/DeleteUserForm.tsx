@@ -6,44 +6,45 @@ import Modal from '@/Components/Modal';
 import SecondaryButton from '@/Components/SecondaryButton';
 import TextInput from '@/Components/TextInput';
 import { useForm } from '@inertiajs/inertia-react';
+import route from 'ziggy-js';
 
-export default function DeleteUserForm({ className }) {
-    const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
-    const passwordInput = useRef();
+export default function DeleteUserForm ({ className }) {
+  const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
+  const passwordInput = useRef();
 
-    const {
-        data,
-        setData,
-        delete: destroy,
-        processing,
-        reset,
-        errors,
-    } = useForm({
-        password: '',
-    });
+  const {
+    data,
+    setData,
+    delete: destroy,
+    processing,
+    reset,
+    errors
+  } = useForm({
+    password: ''
+  })
 
-    const confirmUserDeletion = () => {
-        setConfirmingUserDeletion(true);
-    };
+  const confirmUserDeletion = () => {
+    setConfirmingUserDeletion(true);
+  }
 
-    const deleteUser = (e) => {
-        e.preventDefault();
+  const deleteUser = (e) => {
+    e.preventDefault();
 
-        destroy(route('profile.destroy'), {
-            preserveScroll: true,
-            onSuccess: () => closeModal(),
-            onError: () => passwordInput.current.focus(),
-            onFinish: () => reset(),
-        });
-    };
+    destroy(route('profile.destroy'), {
+      preserveScroll: true,
+      onSuccess: () => closeModal(),
+      onError: () => passwordInput.current.focus(),
+      onFinish: () => reset()
+    })
+  }
 
-    const closeModal = () => {
-        setConfirmingUserDeletion(false);
+  const closeModal = () => {
+    setConfirmingUserDeletion(false);
 
-        reset();
-    };
+    reset();
+  }
 
-    return (
+  return (
         <section className={`space-y-6 ${className}`}>
             <header>
                 <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">Delete Account</h2>
@@ -95,5 +96,5 @@ export default function DeleteUserForm({ className }) {
                 </form>
             </Modal>
         </section>
-    );
+  )
 }

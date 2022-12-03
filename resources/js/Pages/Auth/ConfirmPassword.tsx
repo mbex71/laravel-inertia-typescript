@@ -7,28 +7,28 @@ import TextInput from '@/Components/TextInput';
 import { Head, useForm } from '@inertiajs/inertia-react';
 import route from 'ziggy-js'
 
-export default function ConfirmPassword() {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        password: '',
-    });
+export default function ConfirmPassword () {
+  const { data, setData, post, processing, errors, reset } = useForm({
+    password: ''
+  })
 
-    useEffect(() => {
-        return () => {
-            reset('password');
-        };
-    }, []);
+  useEffect(() => {
+    return () => {
+      reset('password');
+    }
+  }, []);
 
-    const onHandleChange = (event) => {
-        setData(event.target.name, event.target.value);
-    };
+  const onHandleChange = (event) => {
+    setData(event.target.name, event.target.value);
+  }
 
-    const submit = (e) => {
-        e.preventDefault();
+  const submit = (e) => {
+    e.preventDefault();
 
-        post(route('password.confirm'));
-    };
+    post(route('password.confirm'));
+  }
 
-    return (
+  return (
         <GuestLayout>
             <Head title="Confirm Password" />
 
@@ -60,5 +60,5 @@ export default function ConfirmPassword() {
                 </div>
             </form>
         </GuestLayout>
-    );
+  )
 }

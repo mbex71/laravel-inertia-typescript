@@ -3,16 +3,16 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
 import route from 'ziggy-js'
 
-export default function VerifyEmail({ status }) {
-    const { post, processing } = useForm();
+export default function VerifyEmail ({ status }) {
+  const { post, processing } = useForm();
 
-    const submit = (e) => {
-        e.preventDefault();
+  const submit = (e) => {
+    e.preventDefault();
 
-        post(route('verification.send'));
-    };
+    post(route('verification.send'));
+  }
 
-    return (
+  return (
         <GuestLayout>
             <Head title="Email Verification" />
 
@@ -42,5 +42,5 @@ export default function VerifyEmail({ status }) {
                 </div>
             </form>
         </GuestLayout>
-    );
+  )
 }

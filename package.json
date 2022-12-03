@@ -2,7 +2,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "lint": "eslint --fix ./resources/js/**/*.{tsx,jsx,js}"
     },
     "devDependencies": {
         "@headlessui/react": "^1.4.2",
@@ -15,16 +16,23 @@
         "@types/react": "^18.0.26",
         "@types/react-dom": "^18.0.9",
         "@types/ziggy-js": "^1.3.2",
+        "@typescript-eslint/eslint-plugin": "^5.0.0",
         "@vitejs/plugin-react": "^2.0.0",
         "autoprefixer": "^10.4.12",
         "axios": "^1.1.2",
+        "eslint": "^8.0.1",
+        "eslint-config-standard-with-typescript": "^23.0.0",
+        "eslint-plugin-import": "^2.25.2",
+        "eslint-plugin-n": "^15.0.0",
+        "eslint-plugin-promise": "^6.0.0",
+        "eslint-plugin-react": "^7.31.11",
         "laravel-vite-plugin": "^0.7.0",
         "lodash": "^4.17.19",
         "postcss": "^8.4.18",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "tailwindcss": "^3.2.1",
-        "typescript": "^4.9.3",
+        "typescript": "*",
         "vite": "^3.0.0"
     },
     "dependencies": {

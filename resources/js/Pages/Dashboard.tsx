@@ -1,9 +1,9 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/inertia-react';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout'
+import { Head } from '@inertiajs/inertia-react'
 
-export default function Dashboard(props) {
-    console.log(props)
-    return (
+export default function Dashboard (props) {
+  console.log(props)
+  return (
         <AuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
@@ -19,5 +19,5 @@ export default function Dashboard(props) {
                 </div>
             </div>
         </AuthenticatedLayout>
-    );
+  )
 }
