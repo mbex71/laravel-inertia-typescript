@@ -2,6 +2,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
 
 export default function Dashboard(props) {
+    console.log(props)
     return (
         <AuthenticatedLayout
             auth={props.auth}
@@ -12,11 +13,9 @@ export default function Dashboard(props) {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                {
-                    props.users.map((item, key) => <div className="mt-2 bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900 dark:text-gray-100">{item.email}</div>
-                    </div>)
-                }
+                    <div className="mt-2 bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-6 text-gray-900 dark:text-gray-100">Welcome {JSON.stringify(props.auth.user.name)}</div>
+                    </div>
                 </div>
             </div>
         </AuthenticatedLayout>
